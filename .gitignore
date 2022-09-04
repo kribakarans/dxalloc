@@ -1,0 +1,13 @@
+*.out
+*.swo
+*.swp
+*core*
+.ktags
+obj
+dist
+sandbox
+lib/libs
+codereview
+dxalloc.desktop
+make/configs.mk
+build/dxalloc-build
