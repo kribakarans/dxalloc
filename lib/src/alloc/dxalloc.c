@@ -63,7 +63,10 @@ void *dxrealloc(void *ptr, size_t size)
 		abort();
 	}
 
-	DXTRACE_PUSH_TRACE(new);
+	if (ptr != new) {
+		dxt_pop_tracepoint(ptr);
+		DXTRACE_PUSH_TRACE(new);
+	}
 
 	return new;
 }
