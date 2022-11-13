@@ -1,7 +1,7 @@
 
 #***********************************************#
 #                                               #
-#    GNU Makefile to build Dexer crypto tool    #
+#    GNU Makefile to build Dxalloc libraries    #
 #                                               #
 #***********************************************#
 
@@ -43,7 +43,7 @@ build:
 
 distclean cfgclean: clean
 	rm -rf $(PKGBUILDDIR) $(DISTDIR)/*
-	rm -rf $(HOME)/.termux-build/$(ELFNAME) .ktags
+	rm -rf $(HOME)/.termux-build/$(ELFNAME) __ktags
 
 backup: distclean
 	@printf "Archiving ... $(BOLD)$(PACKAGE) v$(VERSION)"

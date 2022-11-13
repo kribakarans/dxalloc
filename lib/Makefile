@@ -111,7 +111,7 @@ uninstall:
 
 COREFILES := core vgcore*
 clean:
-	rm -rf $(OBJDIR) $(LIBDIR)/$(LIBAR) $(LIBDIR)/$(LIBSO)* .ktags
+	rm -rf $(OBJDIR) $(LIBDIR)/$(LIBAR) $(LIBDIR)/$(LIBSO)* __ktags
 
 -include $(DEPS)
 

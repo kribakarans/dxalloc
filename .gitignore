@@ -2,7 +2,7 @@
 *.swo
 *.swp
 *core*
-.ktags
+__ktags
 obj
 dist
 sandbox

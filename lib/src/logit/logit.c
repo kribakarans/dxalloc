@@ -23,7 +23,7 @@ int init_dxlogger(void)
 
 	dxt.logfp = fopen(logfile, "a+");
 	if (dxt.logfp == NULL) {
-		fprintf(stderr, "fopen() logfile failed !!! %s\n", strerror(errno));
+		fprintf(stderr, "fopen() failed !!! %s -- %s\n", logfile, strerror(errno));
 		abort();
 	}
 

@@ -68,11 +68,11 @@ $(TARGET): $(OBJS)
 	@echo "$(PKGNAME) build completed [$(TARGET)]"
 
 # Build object file for each .c file
-SYSBINDIR :=  $(PREFIX)/bin
 $(OBJDIR)/%.o : %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(WFLAGS) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
 
+SYSBINDIR := $(PREFIX)/bin
 install:
 	install -D $(TARGET) $(DESTDIR)$(SYSBINDIR)/$(ELFNAME)
 
@@ -81,7 +81,7 @@ uninstall:
 
 COREFILES := core vgcore*
 clean:
-	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) .ktags
+	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) __ktags
 
 -include $(DEPS)
 
