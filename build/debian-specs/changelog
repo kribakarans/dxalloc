@@ -1,3 +1,12 @@
+dxalloc (1.0-a) focal; urgency=low
+
+  * Removed dxalloc test suite build
+  * Updated logfile name and format
+  * Updated makefile install scripts
+  * Updated README file
+
+ -- Kirubakaran Shanmugam <kribakarans@gmail.com>  Sun, 27 Nov 2022 12:27:45 +0530
+
 dxalloc (1.0-0) focal; urgency=low
 
   * Initial release

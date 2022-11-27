@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <trace/dxtrace.h>
 
-#define DXTLOGFILE "dxtrace.log"
+#define DXTLOGFILE "dxalloc.log"
 
 #define dxlog __logit
 

@@ -11,7 +11,7 @@ RELEASE      :=  $(shell grep PACKAGE_RELEASE  lib/include/version.h | cut -d '"
 REVISION     :=  $(shell grep PACKAGE_REVISION lib/include/version.h | cut -d '"' -f 2)
 VERSION      :=  $(RELEASE)-$(REVISION)
 
-SUBDIRS      :=  lib bin
+SUBDIRS      :=  lib #bin
 
 DISTDIR      :=  dist
 BUILDDIR     :=  build

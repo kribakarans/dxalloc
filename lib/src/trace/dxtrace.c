@@ -16,9 +16,9 @@
 
 #define DXTRACE_USE_DLADDR
 #ifndef DXTRACE_USE_DLADDR
-	#define dxdxt_print_frame_worker dxt_print_frame
+	#define dxt_print_frame_worker dxt_print_frame
 #else
-	#define dxdxt_print_frame_worker dxt_print_frame_r
+	#define dxt_print_frame_worker dxt_print_frame_r
 #endif
 
 bool dbgdxtrace = DXTDEBUG;
@@ -95,7 +95,7 @@ void dxt_print_backtrace(uintptr_t key, bt_t *bt)
 		}
 
 		for (i = 0; i < bt->depth; i++) {
-			backtrace_pcinfo(btstate, bt->pc[i], dxdxt_print_frame_worker, backtrace_error, NULL);
+			backtrace_pcinfo(btstate, bt->pc[i], dxt_print_frame_worker, backtrace_error, NULL);
 		}
 
 		dxinfo("");
@@ -106,7 +106,7 @@ void dxt_print_backtrace(uintptr_t key, bt_t *bt)
 
 static void lookup_hashtable(gpointer key, gpointer val, gpointer data)
 {
-    //dxinfo(" ===> %s: hptr: %p bt: %p", __func__, (void *) key, (void *) val);
+	//dxinfo(" ===> %s: hptr: %p bt: %p", __func__, (void *) key, (void *) val);
 	dxt_print_backtrace((uintptr_t)key, val);
 }
 
@@ -142,8 +142,8 @@ static void dxt_atexit_handler(void)
 
 	dxlog("hashtable: %p", (void *)hashtable);
 	print_dxtrace_report(hashtable);
-    g_hash_table_remove_all(hashtable);
-    g_hash_table_destroy(hashtable);
+	g_hash_table_remove_all(hashtable);
+	g_hash_table_destroy(hashtable);
 	close_dxlogger();
 
 	return;
@@ -216,7 +216,7 @@ static int dxt_print_node(bt_t *bt)
   Return  0: On success or key already exist
   Return  1: If table not initialized
 */
-int dxt_push_tracepoint(void *ptr)
+int dxt_push_trace(void *ptr)
 {
 	int retval = -1;
 	bt_t *bt = NULL;
@@ -270,7 +270,7 @@ int dxt_push_tracepoint(void *ptr)
   Return  0: On success or key not found
   Return  1: If table not initialized
 */
-int dxt_pop_tracepoint(void *ptr)
+int dxt_pop_trace(void *ptr)
 {
 	int retval = -1;
 

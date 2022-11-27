@@ -1,4 +1,3 @@
-
 # Dxalloc: Xtended dynamic memory allocation
 
 Dxalloc provides flawless execution of the system's dynamic memory management routines with inbuilt memory leak detection.
@@ -10,18 +9,17 @@ Dxalloc provides flawless execution of the system's dynamic memory management ro
 4. Track file open and close events with `dxfopen` and `dxfclose` routines
 5. Mitigate dangling pointers and double free errors by nullifying pointers after `free`
 
-# APIs:
-- `dxmalloc` -- equivalent to `malloc`
-- `dxcalloc` -- equivalent to `calloc`
-- `dxrealloc` -- equivalent to `realloc`
-- `dxfree` -- equivalent to `free`
-
-- `dxstrdup` -- equivalent to `strdup`
-- `dxasprintf` -- equivalent to `asprintf`
-- `dxvasprintf` -- equivalent to `vasprintf`
-
-- `dxfopen` -- equivalent to `fopen`
-- `dxfclose` -- equivalent to `fclose`
+| **Dxalloc API** | **Equivalent C library API** |
+| ----------------|------------------------------|
+| `dxmalloc`      | `malloc`                     |
+| `dxcalloc`      | `calloc`                     |
+| `dxrealloc`     | `realloc`                    |
+| `dxfree`        | `free`                       |
+| `dxstrdup`      | `strdup`                     |
+| `dxasprintf`    | `asprintf`                   |
+| `dxvasprintf`   | `vasprintf`                  |
+| `dxfopen`       | `fopen`                      |
+| `dxfclose`      | `fclose`                     |
 
 # Start tracking
 - Call `init_dxtrace()` in you code (in `main()`) to start tracking the memory leaks

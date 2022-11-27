@@ -92,16 +92,17 @@ $(OBJDIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(WFLAGS) $(INCLUDE) -c $< -o $@
 
+INSTALL    ?= install
 PREFIX     ?= /usr/local
 SYSLIBDIR  := $(PREFIX)/lib
 SYSINCLUDE := $(PREFIX)/include
 install:
-	install -D -m 644 $(LIBDIR)/$(LIBAR)     $(DESTDIR)$(SYSLIBDIR)/$(LIBAR)
-	install -D -m 775 $(LIBDIR)/$(LIBSOV)    $(DESTDIR)$(SYSLIBDIR)/$(LIBSOV)
-	install -D -m 644 $(SRC_ALLOC)/dxalloc.h $(DESTDIR)$(SYSINCLUDE)/dxalloc.h
-	cd $(DESTDIR)$(SYSLIBDIR)   && \
-	   ln -sf $(LIBSOV) $(LIBSOM); \
-	   ln -sf $(LIBSOM) $(LIBSO);
+	$(INSTALL) -s -D -m 644 $(LIBDIR)/$(LIBAR)     $(DESTDIR)$(SYSLIBDIR)/$(LIBAR)
+	$(INSTALL) -s -D -m 644 $(LIBDIR)/$(LIBSOV)    $(DESTDIR)$(SYSLIBDIR)/$(LIBSOV)
+	$(INSTALL)    -D -m 644 $(SRC_ALLOC)/dxalloc.h $(DESTDIR)$(SYSINCLUDE)/dxalloc.h
+	cd $(DESTDIR)$(SYSLIBDIR)     && \
+	   ln -sf $(LIBSOV) $(LIBSOM) && \
+	   ln -sf $(LIBSOM) $(LIBSO)
 	@#ldconfig -n $(SYSLIBDIR)
 
 uninstall:

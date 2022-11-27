@@ -13,7 +13,7 @@
     do { \
         if (__dxfp != NULL) { \
             fclose (__dxfp); \
-            dxt_pop_tracepoint(__dxfp); \
+            dxt_pop_trace(__dxfp); \
             __dxfp = NULL; \
         } \
     } while(0)
@@ -22,7 +22,7 @@
     do { \
         if (__dxptr != NULL) { \
             free (__dxptr); \
-            dxt_pop_tracepoint(__dxptr); \
+            dxt_pop_trace(__dxptr); \
             __dxptr = NULL; \
         } \
     } while(0)
@@ -42,8 +42,8 @@ FILE *dxfopen (const char *pathname, const char *mode);
 
 /* dxtrace apis */
 extern void init_dxtrace (void);
-extern int  dxt_pop_tracepoint (void *ptr);
-extern int  dxt_push_tracepoint (void *ptr);
+extern int  dxt_pop_trace (void *ptr);
+extern int  dxt_push_trace (void *ptr);
 
 #endif /*EOF */
 

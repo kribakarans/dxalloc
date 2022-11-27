@@ -13,7 +13,7 @@
 #define DXTRACE_PUSH_TRACE(__dxptr)                      \
     do {                                                 \
         if (__dxptr != NULL) {                           \
-            if (dxt_push_tracepoint(__dxptr) < 0) {      \
+            if (dxt_push_trace(__dxptr) < 0) {           \
                 dxerr("dxtrace_push '%p' failed !!!",    \
                                     (void *)__dxptr);    \
                 abort();                                 \
@@ -64,7 +64,7 @@ void *dxrealloc(void *ptr, size_t size)
 	}
 
 	if (ptr != new) {
-		dxt_pop_tracepoint(ptr);
+		dxt_pop_trace(ptr);
 		DXTRACE_PUSH_TRACE(new);
 	}
 

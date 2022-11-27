@@ -9,9 +9,9 @@
 #include <stdarg.h>
 
 #define FILENAMELEN 512
-#define TMPDIR "/tmp"
+#define TMPDIR "tmp"
 #define PREFIX "" //TODO: need to handle with getenv() for Termux
-#define LOGITFMT ("\33[2K\r%5d %s%20s:%-4d %27s : ")
+#define LOGITFMT ("%5d %s%20s:%-4d %20s : ")
 
 int init_dxlogger(void)
 {
@@ -19,7 +19,7 @@ int init_dxlogger(void)
 	char logfile[FILENAMELEN] = {0};
 
 	dxt.pid = getpid();
-	retval = snprintf(logfile, sizeof(logfile), "%s%s/%s", PREFIX, TMPDIR, DXTLOGFILE);
+	retval = snprintf(logfile, sizeof(logfile), "%s/%s/%s", PREFIX, TMPDIR, DXTLOGFILE);
 
 	dxt.logfp = fopen(logfile, "a+");
 	if (dxt.logfp == NULL) {
