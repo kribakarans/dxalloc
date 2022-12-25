@@ -15,7 +15,7 @@ fi
 if [ "$PLATFORM" == "TERMUX" ]; then
 	PACKAGES+="" #Libraries
 else
-	PACKAGES+="libbacktrace" #Libraries
+	PACKAGES+="libglib2.0-dev" #Libraries
 fi
 
 $SUDO apt update && \
