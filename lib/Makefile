@@ -97,9 +97,9 @@ PREFIX     ?= /usr/local
 SYSLIBDIR  := $(PREFIX)/lib
 SYSINCLUDE := $(PREFIX)/include
 install:
-	$(INSTALL) -s -D -m 644 $(LIBDIR)/$(LIBAR)     $(DESTDIR)$(SYSLIBDIR)/$(LIBAR)
-	$(INSTALL) -s -D -m 644 $(LIBDIR)/$(LIBSOV)    $(DESTDIR)$(SYSLIBDIR)/$(LIBSOV)
-	$(INSTALL)    -D -m 644 $(SRC_ALLOC)/dxalloc.h $(DESTDIR)$(SYSINCLUDE)/dxalloc.h
+	$(INSTALL) -D -m 644 $(LIBDIR)/$(LIBAR)     $(DESTDIR)$(SYSLIBDIR)/$(LIBAR)
+	$(INSTALL) -D -m 644 $(LIBDIR)/$(LIBSOV)    $(DESTDIR)$(SYSLIBDIR)/$(LIBSOV)
+	$(INSTALL) -D -m 644 $(SRC_ALLOC)/dxalloc.h $(DESTDIR)$(SYSINCLUDE)/dxalloc.h
 	cd $(DESTDIR)$(SYSLIBDIR)     && \
 	   ln -sf $(LIBSOV) $(LIBSOM) && \
 	   ln -sf $(LIBSOM) $(LIBSO)
